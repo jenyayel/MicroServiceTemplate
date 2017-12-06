@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using Web.Config;
 
 namespace Web
 {
@@ -19,10 +20,11 @@ namespace Web
             _hostingEnv = env;
             _loggerFactory = loggerFactory;
         }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services
+                .AddAndConfigureMvc();
         }
 
         public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider, IServiceScopeFactory scopeFactory)

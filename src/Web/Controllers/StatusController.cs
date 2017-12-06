@@ -5,7 +5,7 @@ using System;
 namespace Web.Controllers
 {
     [Route("api/[controller]")]
-    public class StatusController : Controller
+    public class StatusController : ControllerBase
     {
         private readonly ILogger<StatusController> _logger;
 
