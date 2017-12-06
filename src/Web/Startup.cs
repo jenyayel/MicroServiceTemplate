@@ -25,7 +25,9 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddAndConfigureMvc();
+                .AddAndConfigureMvc()
+                .AddCorsPolicies()
+                .AddSwagger(_hostingEnv);
         }
 
         public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider, IServiceScopeFactory scopeFactory)
@@ -34,8 +36,13 @@ namespace Web
                 app.UseDeveloperExceptionPage();
 
             app
+                .UseDefaultFiles()
+                .UseStaticFiles()
                 .UseMiddleware<LogRequestIdMiddleware>()
-                .UseMvc();
+                .UseCors(SecurityConfig.POLCY_NAME)
+                .UseMvc()
+                .UseSwagger(c => c.RouteTemplate = "swagger/{documentName}/schema.json")
+                .UseSwaggerUI();
         }
     }
 }

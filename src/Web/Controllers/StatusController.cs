@@ -4,7 +4,10 @@ using System;
 
 namespace Web.Controllers
 {
-    [Route("api/[controller]")]
+    /// <summary>
+    /// Exposes stats of API
+    /// </summary>
+    [Route("[controller]")]
     public class StatusController : ControllerBase
     {
         private readonly ILogger<StatusController> _logger;
@@ -14,13 +17,17 @@ namespace Web.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <summary>
+        /// Basic health of the application
+        /// </summary>
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(string))]
         public string Get()
         {
             _logger.LogDebug("Status called {@caller}", new
             {
                 Ip = this.Request.HttpContext.Connection.RemoteIpAddress?.ToString(),
-                Headers = this.Request.Headers
+                this.Request.Headers
             });
 
             return "OK";

@@ -20,7 +20,7 @@ namespace Integration
             // act
             var response = await _context
                 .GetClient(AuthorizationType.Anonymous, RequestContentType.Text)
-                .GetAsync("/api/status");
+                .GetAsync("/status");
 
             // assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
