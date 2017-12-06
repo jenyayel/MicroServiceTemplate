@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "companyName": "Atrict",
+      "copyrightText": "Copyright (c) {companyName}. All Rights Reserved.\r\n",
+      "xmlHeader": false,
+      "fileNamingConvention": "stylecop",
+      "documentInterfaces": true,
+      "documentExposedElements": true,
+      "documentPrivateElements": true,
+      "documentInternalElements": true,
+      "documentPrivateFields": false
+    },
+    "layoutRules": {
+      "newlineAtEndOfFile": "allow"
+    },
+    "indentation": {
+      "useTabs": true,
+      "indentationSize": 4,
+      "tabSize": 4
+    },
+    "orderingRules": {
+      "elementOrder": [
+        "kind",
+        "constant",
+        "accessibility",
+        "static",
+        "readonly"
+      ],
+      "systemUsingDirectivesFirst": true,
+      "usingDirectivesPlacement": "outsideNamespace"
+    },
+    "namingRules": {
+      "allowCommonHungarianPrefixes": true
+    }
+  }
+}

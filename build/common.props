@@ -1,0 +1,21 @@
+<Project>
+	<PropertyGroup>
+		<Copyright>Atrict</Copyright>
+		<Authors>Jenya Y.</Authors>
+		<NoWarn>$(NoWarn);CS1591;NU1605</NoWarn>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<CodeAnalysisRuleSet>..\..\build\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="..\..\build\stylecop.json" Link="stylecop.json" />		
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+		  <PrivateAssets>All</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+  
+</Project>

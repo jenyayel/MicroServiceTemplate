@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using Web.Config;
 
 namespace Web
 {
@@ -16,8 +13,10 @@ namespace Web
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>()
                 .UseApplicationInsights()
+                .ConfigureAppConfiguration(SettingsConfig.AddProviders)
+                .ConfigureLogging(LoggingConfig.AddLogging)
+                .UseStartup<Startup>()
                 .Build();
 
             host.Run();
