@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using Web.Config;
+using Web.Middleware;
 
 namespace Web
 {
@@ -32,7 +33,9 @@ namespace Web
             if (!_hostingEnv.IsProduction())
                 app.UseDeveloperExceptionPage();
 
-            app.UseMvc();
+            app
+                .UseMiddleware<LogRequestIdMiddleware>()
+                .UseMvc();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Web.Config
                 .Enrich.FromLogContext()
                 .Enrich.WithProperty("app", context.HostingEnvironment.ApplicationName)
                 .Enrich.WithProperty("machine", Environment.MachineName)
-                .CreateLogger());
+                .CreateLogger());            
         }
     }
 }

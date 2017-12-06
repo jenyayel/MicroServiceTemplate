@@ -5,6 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Web.Filters
 {
+    /// <summary>
+    /// Writes log message for every unhandled error that happens in MVC
+    /// </summary>
     public class LogExceptionFilter : ExceptionFilterAttribute
     {
         private readonly ILogger _logger;

@@ -13,7 +13,6 @@ namespace Web
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseApplicationInsights()
                 .ConfigureAppConfiguration(SettingsConfig.AddProviders)
                 .ConfigureLogging(LoggingConfig.AddLogging)
                 .UseStartup<Startup>()
