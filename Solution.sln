@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26711.1
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "src\Web\Web.csproj", "{4FF741A4-FFF8-491A-A28C-DA4197A2151D}"
 EndProject
@@ -11,13 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{04F7B188-C
 	ProjectSection(SolutionItems) = preProject
 		.travis.yml = .travis.yml
 		build\common.props = build\common.props
+		Dockerfile = Dockerfile
 		build\StyleCop.Analyzers.ruleset = build\StyleCop.Analyzers.ruleset
 		build\stylecop.json = build\stylecop.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9B5A6673-458A-4DA6-B91A-90A44B60C7AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration", "tests\Integration\Integration.csproj", "{C7C5BF9E-2FCB-415B-B802-D277B6CB4A2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration", "tests\Integration\Integration.csproj", "{C7C5BF9E-2FCB-415B-B802-D277B6CB4A2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

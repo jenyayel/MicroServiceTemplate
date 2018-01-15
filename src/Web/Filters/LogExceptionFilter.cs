@@ -17,16 +17,12 @@ namespace Web.Filters
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public override void OnException(ExceptionContext context)
-        {
-            this.log(context);
-            base.OnException(context);
-        }
+        public override void OnException(ExceptionContext context) => this.log(context);
 
         public override Task OnExceptionAsync(ExceptionContext context)
         {
             this.log(context);
-            return base.OnExceptionAsync(context);
+            return Task.CompletedTask;
         }
 
         private void log(ExceptionContext context)
