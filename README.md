@@ -8,7 +8,7 @@ The main goal of the template is to have a bare minimum of dependencies and keep
 
 |OS      |Build       |Coverage    |
 |--------|:----------:|:----------:|
-|Docker  |[![Build status](https://travis-ci.org/jenyayel/MicroServiceTemplate.svg?branch=master)](https://travis-ci.org/jenyayel/MicroServiceTemplate/branches/master)|[![Coverage Status](https://coveralls.io/repos/github/jenyayel/MicroServiceTemplate/badge.svg?branch=master)](https://coveralls.io/github/jenyayel/MicroServiceTemplate?branch=master)|
+|Docker  |[![Build status](https://travis-ci.org/jenyayel/MicroServiceTemplate.svg?branch=master)](https://travis-ci.org/jenyayel/MicroServiceTemplate/branches)|[![Coverage Status](https://coveralls.io/repos/github/jenyayel/MicroServiceTemplate/badge.svg?branch=master)](https://coveralls.io/github/jenyayel/MicroServiceTemplate?branch=master)|
 |Windows |[![Build status](https://ci.appveyor.com/api/projects/status/kxhlbhoxt2hauxxf?svg=true)](https://ci.appveyor.com/project/jenyayel/microservicetemplate)      ||
 
 The project can be build from CLI:
