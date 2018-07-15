@@ -23,7 +23,7 @@ script:
  - docker build . -t "$DOCKER_HUB_ORG_OR_USER_NAME"/"$DOCKER_HUB_REPO_NAME":"$TRAVIS_BUILD_NUMBER" -t "$DOCKER_HUB_ORG_OR_USER_NAME"/"$DOCKER_HUB_REPO_NAME":latest -f ./Dockerfile
  
 after_success:
-  - ./tools/csmacnz.coveralls --opencover -i ./tests/Integration/coverage.xml --useRelativePaths
+  - ./tools/csmacnz.Coveralls --opencover -i ./tests/Integration/coverage.xml --useRelativePaths
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push "$DOCKER_HUB_ORG_OR_USER_NAME"/"$DOCKER_HUB_REPO_NAME";
