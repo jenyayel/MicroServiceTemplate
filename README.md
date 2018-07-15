@@ -9,7 +9,7 @@ The main goal of the template is to have a bare minimum of dependencies and keep
 |OS      |Build       |
 |--------|:----------:|
 |Docker  |[![Build status](https://travis-ci.org/jenyayel/MicroServiceTemplate.svg?branch=master)](https://travis-ci.org/jenyayel/MicroServiceTemplate/branches/master)|
-|Windows |[![Build status]()]()|
+|Windows |[![Build status](https://ci.appveyor.com/api/projects/status/kxhlbhoxt2hauxxf?svg=true)](https://ci.appveyor.com/project/jenyayel/microservicetemplate)|
 
 The project can be build from CLI:
 ```
