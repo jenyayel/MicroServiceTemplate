@@ -8,6 +8,8 @@ dotnet_csproj:
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
+install:
+- nuget restore
 build:
   project: /Solution.sln
   verbosity: normal
