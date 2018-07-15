@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{04F7B188-C
 		.travis.yml = .travis.yml
 		build\common.props = build\common.props
 		Dockerfile = Dockerfile
+		README.md = README.md
 		build\StyleCop.Analyzers.ruleset = build\StyleCop.Analyzers.ruleset
 		build\stylecop.json = build\stylecop.json
 	EndProjectSection

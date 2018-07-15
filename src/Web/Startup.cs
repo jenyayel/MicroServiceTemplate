@@ -26,8 +26,7 @@ namespace Web
         {
             services
                 .AddAndConfigureMvc()
-                .AddCorsPolicies()
-                .AddSwagger(_hostingEnv);
+                .AddSwagger(_hostingEnv, _configuration);
         }
 
         public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider, IServiceScopeFactory scopeFactory)
@@ -35,14 +34,18 @@ namespace Web
             if (!_hostingEnv.IsProduction())
                 app.UseDeveloperExceptionPage();
 
+            if (SwaggerConfig.IsEnabled(_configuration))
+            {
+                // static files only required for Swagger
+                app
+                    .UseDefaultFiles()
+                    .UseStaticFiles();
+            }
+
             app
-                .UseDefaultFiles()
-                .UseStaticFiles()
                 .UseMiddleware<LogRequestIdMiddleware>()
-                .UseCors(SecurityConfig.POLCY_NAME)
                 .UseMvc()
-                .UseSwagger(c => c.RouteTemplate = "swagger/{documentName}/schema.json")
-                .UseSwaggerUI();
+                .UseSwagger(_configuration);
         }
     }
 }

@@ -25,8 +25,3 @@ after_success:
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push DOCKER_HUB_ORG_OR_USER_NAME/DOCKER_HUB_REPO_NAME;
     fi
-branches:
-  only:
-    - master
-    - dev
-notifications:

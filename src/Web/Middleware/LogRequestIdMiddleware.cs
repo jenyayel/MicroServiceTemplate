@@ -10,6 +10,8 @@ namespace Web.Middleware
     /// </summary>
     public class LogRequestIdMiddleware
     {
+        private const string REQUEST_PROPERTY_NAME = "requestId";
+        private const string REQUEST_HEADER_NAME = "requestId";
         private readonly RequestDelegate _next;
 
         public LogRequestIdMiddleware(RequestDelegate next)
@@ -19,7 +21,10 @@ namespace Web.Middleware
 
         public async Task Invoke(HttpContext context)
         {
-            using (LogContext.PushProperty("requestId", context.Request.HttpContext.TraceIdentifier))
+            var requestId = context.Request.Headers.ContainsKey(REQUEST_HEADER_NAME) ?
+                context.Request.Headers[REQUEST_HEADER_NAME].ToString() : context.Request.HttpContext.TraceIdentifier;
+            context.Response.Headers.Add(REQUEST_HEADER_NAME, requestId);
+            using (LogContext.PushProperty(REQUEST_PROPERTY_NAME, requestId))
             {
                 await _next.Invoke(context);
             }

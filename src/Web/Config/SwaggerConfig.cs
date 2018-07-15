@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
@@ -9,8 +10,12 @@ namespace Web.Config
 {
     public static class SwaggerConfig
     {
-        public static IServiceCollection AddSwagger(this IServiceCollection services, IHostingEnvironment hosting)
+        public static bool IsEnabled(IConfiguration configuration) => configuration.GetValue<bool>("Swagger:Enable");
+
+        public static IServiceCollection AddSwagger(this IServiceCollection services, IHostingEnvironment hosting, IConfiguration configuration)
         {
+            if (!!IsEnabled(configuration)) return services;
+
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc(
@@ -20,7 +25,7 @@ namespace Web.Config
                             Version = "1.0",
                             Description = $"You are viewing version '1.0' of API. All API versions: ['1.0']."
                         });
-                
+
                 options.DescribeAllEnumsAsStrings();
 
                 // documentation from XML comments
@@ -33,9 +38,13 @@ namespace Web.Config
             return services;
         }
 
-        public static IApplicationBuilder UseSwaggerUI(this IApplicationBuilder app)
+        public static IApplicationBuilder UseSwagger(this IApplicationBuilder app, IConfiguration configuration)
         {
-            return app.UseSwaggerUI(c =>
+            if (!IsEnabled(configuration)) return app;
+
+            return app
+                .UseSwagger(c => c.RouteTemplate = "swagger/{documentName}/schema.json")
+                .UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "swagger";
                 c.DocExpansion("none");
