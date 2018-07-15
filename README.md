@@ -8,8 +8,8 @@ The main goal of the template is to have a bare minimum of dependencies and keep
 
 |OS      |Build       |
 |--------|:----------:|
-|Ubuntu  |[![Build status](https://ci.appveyor.com/api/projects/status/mi0xgwxrpo7kburj/branch/master?svg=true)](https://ci.appveyor.com/project/jenyayel/enttoi-api-dotnet/branch/master)|
-|Windows |[![Build status](https://ci.appveyor.com/api/projects/status/mi0xgwxrpo7kburj/branch/dev?svg=true)](https://ci.appveyor.com/project/jenyayel/enttoi-api-dotnet/branch/dev)|
+|Docker  |[![Build status](https://travis-ci.org/jenyayel/MicroServiceTemplate.svg?branch=master)](https://travis-ci.org/jenyayel/MicroServiceTemplate/branches/master)|
+|Windows |[![Build status]()]()|
 
 The project can be build from CLI:
 ```
