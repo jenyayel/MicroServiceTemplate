@@ -17,8 +17,7 @@ namespace Integration
         [Theory]
         [InlineData("/")]
         [InlineData("/swagger/index.html")]
-        [InlineData("/swagger/v1.0/schema.json")]
-        public async Task GetSwaggerTest(string url)
+        public async Task GetSwaggerUITest(string url)
         {
             // arrange
             var client = _context.CreateClient().SetContentType(HttpClientExtensions.RequestContentType.Text);
@@ -29,6 +28,21 @@ namespace Integration
             // assert
             response.EnsureSuccessStatusCode();
             Assert.Equal("text/html", response.Content.Headers.ContentType.ToString());
+        }
+
+        [Theory]
+        [InlineData("/swagger/v1.0/schema.json")]
+        public async Task GetSwaggerSchema(string url)
+        {
+            // arrange
+            var client = _context.CreateClient().SetContentType(HttpClientExtensions.RequestContentType.Text);
+
+            // act
+            var response = await client.GetAsync(url);
+
+            // assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal("application/json; charset=utf-8", response.Content.Headers.ContentType.ToString());
         }
 
         [Theory]
