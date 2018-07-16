@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Web.Filters;
 
@@ -15,6 +16,7 @@ namespace Web.Config
             builder.AddApiExplorer();
             builder.AddDataAnnotations();
             builder.AddJsonFormatters();
+            builder.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             return services;
         }
     }

@@ -10,12 +10,10 @@ namespace Web.Config
 {
     public static class SwaggerConfig
     {
-        public static bool IsEnabled(IConfiguration configuration) => configuration.GetValue<bool>("Swagger:Enable");
+        public static bool IsEnabled(IConfiguration configuration) => !configuration.GetValue<bool>("Swagger:Disable");
 
         public static IServiceCollection AddSwagger(this IServiceCollection services, IHostingEnvironment hosting, IConfiguration configuration)
         {
-            if (!!IsEnabled(configuration)) return services;
-
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc(
@@ -47,7 +45,7 @@ namespace Web.Config
                 .UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "swagger";
-                c.DocExpansion("none");
+                c.DocExpansion(DocExpansion.None);
                 c.SwaggerEndpoint($"/swagger/v1.0/schema.json", $"API version 1.0");
             });
         }

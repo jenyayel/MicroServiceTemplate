@@ -7,18 +7,15 @@ namespace Web
 {
     public class Program
     {
-        public static void Main(string[] args)
-        {
-            var host = new WebHostBuilder()
+        public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+           new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .ConfigureAppConfiguration(SettingsConfig.AddProviders)
                 .ConfigureLogging(LoggingConfig.AddLogging)
-                .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
-        }
+                .UseStartup<Startup>();
     }
 }

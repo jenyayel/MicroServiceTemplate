@@ -1,6 +1,6 @@
 <Project>
 	<PropertyGroup>
-		<Copyright>Atrict</Copyright>
+		<Copyright></Copyright>
 		<Authors>Jenya Y.</Authors>
 		<NoWarn>$(NoWarn);CS1591;NU1605</NoWarn>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>

@@ -28,8 +28,8 @@ dotnet test tests/Integration/Integration.csproj
 
 ## Dependencies
 
-The only dependency is [.NET Core 2.0](https://www.microsoft.com/net/download/archives):
-* If you need to build and developer get SDK here
+The only dependency is [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1):
+* If you need to build and develop get SDK 
 * If you only need to run (outside of Docker), then get only runtime
 
 ## What it has
