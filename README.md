@@ -34,7 +34,7 @@ The only dependency is [.NET Core 2.1](https://www.microsoft.com/net/download/do
 
 ## What it has
 
-The main motto of the project is not to have everything that the API/microservice *might* need, but instead to have what every API/microservice will definitely require:
+The main motto of the project is not to have everything that the API/microservice *might* need, but instead to have what every API will definitely require:
 
 * Clean code (minimal amount of lines with good structure)
 * A way to write integration tests (see project `Integration`) with coverage report
